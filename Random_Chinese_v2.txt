@@ -19,18 +19,7 @@ define :gchoose_duration do
   gchoose_duration = duration
 end
 
-#duration = choose([0.125, 0.25, 0.5, 1])
-
 loop do
   play gchoose_note
   sleep gchoose_duration
-  #
-  #duration = duration * choose([0.5, 1, 2])
-  #if duration > 1
-  #  duration = 1
-  #end
-  #if duration < 0.125
-  #  duration = 0.125
-  #end
-  #sleep duration
 end
