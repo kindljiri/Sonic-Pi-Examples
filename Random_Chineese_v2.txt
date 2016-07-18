@@ -1,0 +1,27 @@
+# Welcome to Sonic Pi v2.10
+use_bpm 60
+use_synth :dull_bell
+
+define :gchoose_note do
+  note = 67
+  note = 64 if one_in(5)
+  note = 69 if one_in(5)
+  note = 62 if one_in(10)
+  note = 71 if one_in(10)
+  gchoose_note = note
+end
+
+define :gchoose_duration do
+  duration = 0.25
+  duration = 0.5 if one_in(3)
+  duration = 1 if one_in(6)
+  duration = 0.125 if one_in(6)
+  gchoose_duration = duration
+end
+
+#duration = choose([0.125, 0.25, 0.5, 1])
+
+loop do
+  play gchoose_note
+  sleep gchoose_duration
+end
