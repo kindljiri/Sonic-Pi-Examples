@@ -1,0 +1,14 @@
+# Welcome to Sonic Pi v2.10
+use_bpm 78
+use_synth :piano
+loop do
+  play 61
+  sleep 1
+  sleep 0.5
+  play 65
+  sleep 0.5
+  play 65
+  sleep 1
+  play 61
+  sleep 1
+end
