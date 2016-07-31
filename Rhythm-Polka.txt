@@ -1,0 +1,36 @@
+# Welcome to Sonic Pi v2.10
+use_bpm 90
+use_synth :piano
+
+#Let first define basic tones
+C = 61
+CSharp = 62
+D = 63
+DSharp = 64
+E = 65
+F = 66
+FSharp = 67
+G = 68
+GSharp = 69
+A = 70
+ASharp = 71
+H = 72
+B = 72
+#Basic rhythm
+in_thread do
+  loop do
+    play F
+    sleep 1
+    play F
+    sleep 1
+  end
+end
+
+loop do
+  sleep 0.5
+  play C+12
+  sleep 0.5
+  sleep 0.5
+  play C+12
+  sleep 0.5
+end
