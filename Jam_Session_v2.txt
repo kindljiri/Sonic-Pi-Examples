@@ -1,0 +1,59 @@
+# Welcome to Sonic Pi v2.10
+use_bpm 80
+use_synth :piano
+
+#jazz scale
+#jazz melodic minor
+# C D E-flat F G A B
+jazz_scale = [61, 63, 64, 66, 68, 70, 72]
+durations = [0.25, 0.5, 1, 2, 4]
+
+define :fact do |n|
+  fact = (1..n).reduce(:*)||1
+end
+
+define :combination do |n, k|
+  combination = (fact n)/((fact k) * (fact (n-k)))
+end
+
+define :gchoose do |list|
+  fl = list.length
+  choosen_index = (fl/2).to_i
+  base = 2**(fl-1)
+  index = 0
+  (fl). times do
+    #puts (combination (fl-1), index)
+    choosen_index = index if one_in((base/(combination (fl-1), index)).to_i)
+    index = inc index
+  end
+  ghoose = list[choosen_index]
+end
+
+#Basic rhythm
+in_thread do
+  loop do
+    play (F-12)
+    sleep 1
+    play (D-12)
+    sleep 1
+  end
+end
+
+#Total Duration
+TD = 4
+#Remaining Duration
+RD = TD
+
+loop do
+  play (gchoose jazz_scale)
+  #Choosen Duration
+  CD = gchoose durations
+  if CD > RD
+    CD = CD - RD
+  end
+  sleep CD
+  RD = RD - CD
+  if RD <= 0
+    RD = TD
+  end
+end
