@@ -1,5 +1,5 @@
 # Welcome to Sonic Pi v2.10
-use_bpm 80
+use_bpm 120
 use_synth :piano
 
 #jazz scale
