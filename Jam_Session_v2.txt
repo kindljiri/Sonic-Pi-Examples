@@ -35,7 +35,7 @@ in_thread do
     play (F-12)
     sleep 1
     3. times do
-      paly (D-12)
+      play (D-12)
       sleep 1
     end
   end
