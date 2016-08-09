@@ -34,8 +34,10 @@ in_thread do
   loop do
     play (F-12)
     sleep 1
-    play (D-12)
-    sleep 1
+    3. times do
+      paly (D-12)
+      sleep 1
+    end
   end
 end
 
@@ -45,11 +47,11 @@ TD = 4
 RD = TD
 
 loop do
-  play (gchoose jazz_scale)
+  play (choose jazz_scale)
   #Choosen Duration
   CD = gchoose durations
   if CD > RD
-    CD = CD - RD
+    CD = RD
   end
   sleep CD
   RD = RD - CD
